@@ -1,0 +1,12 @@
+float SnappyTimeBasedToggle()
+		{
+			//Desmos Link 
+			// https://www.desmos.com/calculator/qntvurzjbr
+			//Function by TWKTemplar
+			float a = 0.5f;//Default 0.5,Distance between toggles a=1 makes a 5 second distance, a=0.5 makes a 10 second distance
+			float b = 6;//Default 6, Length of time of the return number being 1, b=1 means 4 seconds,b=5.5f, means 2 seconds, Keep as an int if you dont want an error
+			float SinWaveMask = ceil(sin(a*_Time.y)*0.9f);
+			float BouncingSinWave = pow(sin(a * _Time.y), b);
+			float d = 10;//Default 10, sclaed amount, 10 for lots of clamping, 1 for a smooth curve, keep above 1
+			float ScaledAndClamped = saturate((((SinWaveMask * BouncingSinWave) + 1) * d) - d);
+		}
