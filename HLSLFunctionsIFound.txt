@@ -20,6 +20,11 @@ float3 RGBtoHSV()
         return input.z * lerp(K.xxx, saturate(p - K.xxx), input.y);
 }
 
+//Inverse lerp shown by  Freya Holmér  in the video "Shader Basics, Blending & Textures • Shaders for Game Devs [Part 1]" at https://youtu.be/kfM-yu0iQBk?si=RkPvffmPFchOfEDN at 2 Hours 5 seconds in.
+float InverseLerp(float a, float b, float v) {
+	//Templar Guess -> If a black and white gradient is put in as v then a and b remaps it basicly
+	return (v-a)/(b-a);
+}
 
 
 //    ------  Below are from Gdot posts so they may need to be converted and tested   ------  https://github.com/paddy-exe/ShaderFunction-Extras/blob/main/addons/ShaderFunction-Extras/Color/color_adjustment.gdshaderinc
