@@ -11,3 +11,10 @@ float SnappyTimeBasedToggle()
 		float d = 10;//Default 10, sclaed amount, 10 for lots of clamping, 1 for a smooth curve, keep above 1
 		float ScaledAndClamped = saturate((((SinWaveMask * BouncingSinWave) + 1) * d) - d);
 	}
+
+
+//This returns 1 if x is positive, 0 if x is negative, NAN if x is 0
+float IsPositive(float x)
+{
+	return (((x/abs(x))+1))*0.5f;
+}
